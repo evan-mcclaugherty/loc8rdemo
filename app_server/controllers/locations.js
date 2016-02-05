@@ -4,12 +4,12 @@ module.exports.homelist = function(req,res) {
   });
 };
 module.exports.locationInfo = function(req, res) {
-  res.render('index', {
+  res.render('location-info', {
     title: 'Location Info'
   });
 };
 module.exports.addReview = function(req, res) {
-  res.render('index', {
+  res.render('location-review-form', {
     title: 'Add review'
   });
 };

@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node":"~5.5.5",
+    "node": "~5.5.5",
     "npm": "~3.3.12"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "express": "~4.13.1",
     "jade": "~1.11.0",
     "morgan": "~1.6.1",
+    "pg": "^4.4.4",
     "serve-favicon": "~2.3.0"
   }
 }
