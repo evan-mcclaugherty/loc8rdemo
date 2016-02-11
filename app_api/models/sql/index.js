@@ -3,27 +3,24 @@
 var QueryFile = require('pg-promise').QueryFile;
 
 function sql(file) {
-  var path = '.app_server/models/sql/' + file;
+  var path = '.app_api/models/sql/' + file;
   return new QueryFile(path, {
     minify: true
   });
 }
 
 var sqlProvider = {
-  location: {
-    add: sql('location/create.sql'),
-    all: sql('location/all.sql'),
-    create: sql('location/create.sql'),
-    drop: sql('location/drop.sql'),
-    empty: sql('location/empty.sql'),
-    find: sql('location/find.sql'),
-    remove: sql('location/remove.sql'),
-    total: sql('location/total.sql'),
+  locations: {
+    locationsListByDistance: sql('locations/ListByDistance.sql'),
+    locationsCreate: sql('locations/Create.sql'),
+    locationsReadOne: sql('locations/ReadOne.sql'),
+    locationsUpdateOne: sql('locations/UpdateOne.sql'),
+    locationsDeleteOne: sql('locations/DeleteOne.sql'),
   },
-  review: {
-    add: sql('review/create.sql')
+  reviews: {
+    add: sql('reviews/create.sql')
   },
-  user: {
+  users: {
     add: sql('users/create.sql')
   },
 };

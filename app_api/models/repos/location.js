@@ -29,7 +29,7 @@ module.exports = function(obj) {
         });
     },
 
-    find: function(id){
+    find: function(id) {
       return obj.oneOrNone(sql.find, id);
     },
 
@@ -39,7 +39,7 @@ module.exports = function(obj) {
 
     total: function() {
       return obj.one(sql.total)
-        .then(function (data) {
+        .then(function(data) {
           return data.count;
         });
     }
