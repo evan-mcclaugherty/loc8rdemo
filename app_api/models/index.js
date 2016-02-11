@@ -1,32 +1,28 @@
 /*jshint esversion: 6 */
 var promise = require('bluebird');
 
-var controllers = {
+var repos = {
 
-  locations: require('../controllers/locations'),
-  reviews: require('../controllers/reviews')
+  locations: require('./repos/locations'),
+  reviews: require('./repos/reviews')
 };
 
 var options = {
-  capTX: true, //THANK YOU VITALY
-  /*
-  Having problems understanding how sqlprovider is used.
-  From what I understand module.export puts variables
-  in the root namespace correct?  It gets called in your
-  web-api I *think* but I can't tell because the db extension
-  makes it look like its directly calling a function from your
-  repo folder instead of using QueryFile.
-  */
+  capTX: true,
   promiseLib: promise,
   extend: function() {
-    this.locations = controllers.locations(this);
-    this.reviews = controllers.reviews(this);
+    this.locations = repos.locations;
+    this.reviews = repos.reviews;
   }
 };
 var pgp = require('pg-promise')(options);
 pgp.pg.defaults.poolSize = 20;
 
 var db = pgp(process.env.DATABASE_URL);
+
+var diag = require('./diagnostics');
+diag.init(options);
+
 module.exports = {
   pgp: pgp,
   db: db

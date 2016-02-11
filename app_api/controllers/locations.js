@@ -1,4 +1,4 @@
-var sql = require('../models/sql').locations;
+var db = require('../models').db;
 
 var sendJsonResponse = function(res, status, content) {
   res.status(status);
@@ -9,9 +9,13 @@ module.exports = function(obj) {
   return {
 
     locationsListByDistance: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success GET"
-      });
+
+      var action = db.users.create();
+      respond(action, res);
+
+      // sendJsonResponse(res, 200, {
+      //   "status": "success GET"
+      // });
     },
 
     locationsCreate: function(req, res) {
