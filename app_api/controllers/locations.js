@@ -7,6 +7,7 @@ var sendJsonResponse = function(res, status, content) {
 
 module.exports = function(obj) {
   return {
+
     locationsListByDistance: function(req, res) {
       sendJsonResponse(res, 200, {
         "status": "success"

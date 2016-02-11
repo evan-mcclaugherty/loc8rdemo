@@ -2,7 +2,8 @@
 var promise = require('bluebird');
 
 var controllers = {
-  locations: require('../controllers/location'),
+
+  locations: require('../controllers/locations'),
   reviews: require('../controllers/reviews')
 };
 
@@ -22,7 +23,6 @@ var options = {
     this.reviews = controllers.reviews(this);
   }
 };
-
 var pgp = require('pg-promise')(options);
 pgp.pg.defaults.poolSize = 20;
 
@@ -31,3 +31,11 @@ module.exports = {
   pgp: pgp,
   db: db
 };
+
+db.any("select test from test")
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });

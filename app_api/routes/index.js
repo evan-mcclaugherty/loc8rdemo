@@ -3,25 +3,26 @@ var router = express.Router();
 var ctrlLocations = require('../controllers/locations');
 var ctrlReviews = require('../controllers/reviews');
 
-
 //CREATE new location
-router.post('/locations', ctrlLocations.locationsCreate);
+console.log(ctrlLocations().locationsCreate);
+router.post('/locations', ctrlLocations().locationsCreate);
+
 //READ list of locations
-router.get('/locations', ctrlLocations.locationsListByDistance);
+router.get('/locations', ctrlLocations().locationsListByDistance);
 //READ specific location
-router.get('/locations', ctrlLocations.locationsReadOne);
+router.get('/locations', ctrlLocations().locationsReadOne);
 //UPDATE specific location
-router.put('/locations/:locationID', ctrlLocations.locationsUpdateOne);
+router.put('/locations/:locationID', ctrlLocations().locationsUpdateOne);
 //DELETE a specific location
-router.delete('/locations/:locationID', ctrlLocations.locationsDeleteOne);
+router.delete('/locations/:locationID', ctrlLocations().locationsDeleteOne);
 
 //CREATE a new reviewText
-router.post('/locations/:locationID/reviews', ctrlReviews.reviewsCreate);
+router.post('/locations/:locationID/reviews', ctrlReviews().reviewsCreate);
 //READ a specific review
-router.get('/locations/:locationID/reviews/:reviewID', ctrlReviews.reviewsReadOne);
+router.get('/locations/:locationID/reviews/:reviewID', ctrlReviews().reviewsReadOne);
 //UPDATE a specific review
-router.put('/locations/:locationID/reviews/:reviewID', ctrlReviews.reviewsUpdateOne);
+router.put('/locations/:locationID/reviews/:reviewID', ctrlReviews().reviewsUpdateOne);
 //DELETE a specific review
-router.delete('/locations/:locationID/reviews/:reviewID', ctrlReviews.reviewsDeleteOne);
+router.delete('/locations/:locationID/reviews/:reviewID', ctrlReviews().reviewsDeleteOne);
 
 module.exports = router;
