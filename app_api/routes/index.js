@@ -3,14 +3,13 @@ var router = express.Router();
 var ctrlLocations = require('../controllers/locations');
 var ctrlReviews = require('../controllers/reviews');
 
-//CREATE new location
-console.log(ctrlLocations().locationsCreate);
-router.post('/locations', ctrlLocations().locationsCreate);
 
+//CREATE new location
+router.post('/locations', ctrlLocations().locationsCreate);
 //READ list of locations
 router.get('/locations', ctrlLocations().locationsListByDistance);
 //READ specific location
-router.get('/locations', ctrlLocations().locationsReadOne);
+router.get('/locations/:locationID', ctrlLocations().locationsReadOne);
 //UPDATE specific location
 router.put('/locations/:locationID', ctrlLocations().locationsUpdateOne);
 //DELETE a specific location

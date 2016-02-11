@@ -10,25 +10,25 @@ module.exports = function(obj) {
 
     locationsListByDistance: function(req, res) {
       sendJsonResponse(res, 200, {
-        "status": "success"
+        "status": "success GET"
       });
     },
 
     locationsCreate: function(req, res) {
       sendJsonResponse(res, 200, {
-        "status": "success"
+        "status": "success POST create"
       });
     },
 
     locationsReadOne: function(req, res) {
       sendJsonResponse(res, 200, {
-        "status": "success"
+        "status": "success GET Read One"
       });
     },
 
     locationsUpdateOne: function(req, res) {
       sendJsonResponse(res, 200, {
-        "status": "success"
+        "status": "success PUT with ID"
       });
     },
 
