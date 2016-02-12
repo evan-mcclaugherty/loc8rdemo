@@ -2,19 +2,20 @@
 var promise = require('bluebird');
 
 var repos = {
-
   locations: require('./repos/locations'),
-  reviews: require('./repos/reviews')
+  reviews: require('./repos/reviews'),
+  users: require('./repos/users')
 };
-
 var options = {
   capTX: true,
   promiseLib: promise,
   extend: function() {
-    this.locations = repos.locations;
-    this.reviews = repos.reviews;
+    this.locations = repos.locations(this);
+    this.reviews = repos.reviews(this);
+    this.users = repos.users(this);
   }
 };
+
 var pgp = require('pg-promise')(options);
 pgp.pg.defaults.poolSize = 20;
 
@@ -27,11 +28,3 @@ module.exports = {
   pgp: pgp,
   db: db
 };
-
-db.any("select test from test")
-  .then(function(data) {
-    console.log(data);
-  })
-  .catch(function (error) {
-    console.log(error);
-  });

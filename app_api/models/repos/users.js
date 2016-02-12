@@ -1,4 +1,4 @@
-var sql = require('../sql').reviews;
+var sql = require('../sql').users;
 
 module.exports = function(obj) {
   return {

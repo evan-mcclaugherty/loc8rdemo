@@ -5,14 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-require('./app_api/models/index');
-
 var routes = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 var users = require('./app_server/routes/users');
 
 var app = express();
-
+//require('./app_api');
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');

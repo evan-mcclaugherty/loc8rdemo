@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var db = require('../models').db;
 
 var sendJsonResponse = function(res, status, content) {
@@ -5,22 +6,17 @@ var sendJsonResponse = function(res, status, content) {
   res.json(content);
 };
 
-module.exports = function(obj) {
+module.exports = function() {
   return {
-
     locationsListByDistance: function(req, res) {
-
-      var action = db.users.create();
-      respond(action, res);
-
-      // sendJsonResponse(res, 200, {
-      //   "status": "success GET"
-      // });
+      sendJsonResponse(res, 200, {
+        "status": "success GET"
+      });
     },
 
     locationsCreate: function(req, res) {
       sendJsonResponse(res, 200, {
-        "status": "success POST create"
+        "status": "success GET Read One"
       });
     },
 

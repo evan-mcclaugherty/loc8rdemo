@@ -3,7 +3,7 @@ var sql = require('../sql').locations;
 module.exports = function(obj) {
   return {
     listByDistance: function() {
-      return obj.none(sql.listByDistance);
+      return obj.any(sql.listByDistance);
     },
 
     create: function() {
@@ -11,7 +11,7 @@ module.exports = function(obj) {
     },
 
     readOne: function() {
-      return obj.none(sql.readOne);
+      return obj.one(sql.readOne);
     },
 
     updateOne: function() {

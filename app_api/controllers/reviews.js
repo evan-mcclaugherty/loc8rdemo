@@ -1,11 +1,10 @@
-var sql = require('../models/sql').reviews;
 var db = require('../models').db;
 var sendJsonResponse = function(res, status, content) {
   res.status(status);
   res.json(content);
 };
 
-module.exports = function(obj) {
+module.exports = function() {
   return {
 
     reviewsCreate: function(req, res) {
