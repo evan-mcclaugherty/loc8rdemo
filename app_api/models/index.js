@@ -11,14 +11,13 @@ let options = {
   capTX: true,
   promiseLib: promise,
   extend: function() {
-    this.locations = repos.locations();
-    this.reviews = repos.reviews();
-    this.users = repos.users();
+    this.locations = repos.locations(this);
+    this.reviews = repos.reviews(this);
+    this.users = repos.users(this);
   }
 };
 
 let pgp = require('pg-promise')(options);
-pgp.pg.defaults.poolSize = 20;
 
 let db = pgp(process.env.DATABASE_URL);
 
