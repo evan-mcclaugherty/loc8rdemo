@@ -1,2 +1,2 @@
-INSERT INTO locations(name, street, coords, city, zip)
-VALUES(${name},${street},${coords},${city},${zip});
+INSERT INTO locations(name, street, city, zip)
+VALUES(${name},${street},${city},${zip});

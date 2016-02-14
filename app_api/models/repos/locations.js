@@ -1,26 +1,17 @@
 "use strict";
-let sql = require('../sql/index').locations;
+let sql = require('../sql').locations;
 
-module.exports = function(obj) {
-  return {
-    listByDistance: function() {
-      return obj.any(sql.listByDistance);
-    },
+module.exports = repo => {
 
-    create: function() {
-      return obj.none(sql.create);
-    },
+    return {
+        listByDistance: () => repo.any(sql.listByDistance),
 
-    readOne: function() {
-      return obj.one(sql.readOne);
-    },
+        create: () => repo.none(sql.create),
 
-    updateOne: function() {
-      return obj.none(sql.updateOne);
-    },
+        readOne: value => repo.one(sql.readOne, value),
 
-    deleteOne: function() {
-      return obj.none(sql.deleteOne);
-    }
-  };
+        updateOne: value => repo.none(sql.updateOne, value),
+
+        deleteOne: value => repo.none(sql.deleteOne, value)
+    };
 };

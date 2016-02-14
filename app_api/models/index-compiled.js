@@ -27,3 +27,5 @@ module.exports = {
     pgp: pgp,
     db: db
 };
+
+//# sourceMappingURL=index-compiled.js.map

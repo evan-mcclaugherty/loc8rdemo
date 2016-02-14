@@ -30,5 +30,8 @@
     "esversion": 6,
     "strict": true,
     "node": true
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1"
   }
 }
