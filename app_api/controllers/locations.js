@@ -1,41 +1,47 @@
-/*jshint esversion: 6 */
-var db = require('../models').db;
+"use strict";
+let db = require('../models').db;
 
-var sendJsonResponse = function(res, status, content) {
-  res.status(status);
-  res.json(content);
+
+
+module.exports = {
+  locationsListByDistance: function(req, res) {
+    let action = db.locations.listByDistance();
+    respond(action, res);
+  },
+
+  locationsCreate: function(req, res) {
+    let action = db.locations.create();
+    respond(action, res);
+  },
+
+  locationsReadOne: function(req, res) {
+    let action = db.locations.readOne();
+    respond(action, res);
+  },
+
+  locationsUpdateOne: function(req, res) {
+    let action = db.locations.updateOne();
+    respond(action, res);
+  },
+
+  locationsDeleteOne: (req, res) => {
+    let action = db.locations.deleteOne();
+    respond(action, res);
+  }
 };
 
-module.exports = function() {
-  return {
-    locationsListByDistance: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success GET"
+function respond(action, res) {
+  action
+    .then(function(data) {
+      res.json({
+        success: true,
+        data: data
       });
-    },
-
-    locationsCreate: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success GET Read One"
+    })
+    .catch(function(error) {
+      res.json({
+        success: false,
+        error: error.message || error
       });
-    },
-
-    locationsReadOne: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success GET Read One"
-      });
-    },
-
-    locationsUpdateOne: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success PUT with ID"
-      });
-    },
-
-    locationsDeleteOne: function(req, res) {
-      sendJsonResponse(res, 200, {
-        "status": "success"
-      });
-    }
-  };
-};
+    });
+}

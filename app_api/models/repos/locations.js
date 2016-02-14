@@ -1,4 +1,5 @@
-var sql = require('../sql').locations;
+"use strict";
+let sql = require('../sql/index').locations;
 
 module.exports = function(obj) {
   return {

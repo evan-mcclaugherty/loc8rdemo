@@ -1,27 +1,28 @@
-/*jshint esversion: 6 */
-var promise = require('bluebird');
+"use strict";
+let faker = require('faker');
+let promise = require('bluebird');
 
-var repos = {
+let repos = {
   locations: require('./repos/locations'),
   reviews: require('./repos/reviews'),
   users: require('./repos/users')
 };
-var options = {
+let options = {
   capTX: true,
   promiseLib: promise,
   extend: function() {
-    this.locations = repos.locations(this);
-    this.reviews = repos.reviews(this);
-    this.users = repos.users(this);
+    this.locations = repos.locations();
+    this.reviews = repos.reviews();
+    this.users = repos.users();
   }
 };
 
-var pgp = require('pg-promise')(options);
+let pgp = require('pg-promise')(options);
 pgp.pg.defaults.poolSize = 20;
 
-var db = pgp(process.env.DATABASE_URL);
+let db = pgp(process.env.DATABASE_URL);
 
-var diag = require('./diagnostics');
+let diag = require('./diagnostics');
 diag.init(options);
 
 module.exports = {

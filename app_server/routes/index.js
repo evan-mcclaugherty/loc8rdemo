@@ -1,7 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var ctrlLocations = require('../controllers/locations');
-var ctrlOthers = require('../controllers/others');
+"use strict";
+let express = require('express');
+let router = express.Router();
+let ctrlLocations = require('../controllers/locations');
+let ctrlOthers = require('../controllers/others');
 
 /* GET home page. */
 router.get('/', ctrlLocations.homelist);

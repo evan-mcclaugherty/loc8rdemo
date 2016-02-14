@@ -1,46 +1,33 @@
-/*jshint esversion: 6 */
-
-var QueryFile = require('pg-promise').QueryFile;
+"use strict";
+let QueryFile = require('pg-promise').QueryFile;
 
 function sql(file) {
-  var path = './app_api/models/sql/' + file;
+  let path = './app_api/models/sql/' + file;
   return new QueryFile(path, {
     minify: true
   });
 }
 
-var sqlProvider = {
+let sqlProvider = {
   locations: {
-    locationsListByDistance: sql('locations/listByDistance.sql'),
     locationsCreate: sql('locations/create.sql'),
+    locationsDeleteOne: sql('locations/deleteOne.sql'),
+    locationsListByDistance: sql('locations/listByDistance.sql'),
     locationsReadOne: sql('locations/readOne.sql'),
     locationsUpdateOne: sql('locations/updateOne.sql'),
-    locationsDeleteOne: sql('locations/deleteOne.sql'),
   },
   reviews: {
-    add: sql('reviews/create.sql')
+    reviewsCreate: sql('reviews/create.sql'),
+    reviewsDeleteOne: sql('reviews/deleteOne.sql'),
+    reviewsReadOne: sql('reviews/readOne.sql'),
+    reviewsUpdateOne: sql('reviews/updateOne.sql')
   },
   users: {
-    add: sql('users/create.sql')
+    usersCreate: sql('users/create.sql'),
+    usersDeleteOne: sql('users/deleteOne.sql'),
+    usersReadOne: sql('users/readOne.sql'),
+    usersUpdateOne: sql('users/updateOne.sql')
   }
 };
 
 module.exports = sqlProvider;
-
-//LOCATION INSERTS
-// var locationInsert = () => {
-//   var fakes = {
-//     firstName: faker.name.firstName(),
-//     lastName: faker.name.lastName(),
-//     zipCode: parseInt(faker.address.zipCode(), 10),
-//     city: faker.address.city(),
-//     streetAddress: faker.address.streetAddress(),
-//     state: faker.address.state(),
-//     email: faker.internet.email(),
-//     userName: faker.internet.userName(),
-//     sentences: faker.lorem.sentences(),
-//     companyName: faker.company.companyName(),
-//     latitude: +faker.address.latitude(),
-//     longitude: +faker.address.longitude()
-//   };
-// };

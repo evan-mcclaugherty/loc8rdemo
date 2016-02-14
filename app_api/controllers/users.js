@@ -1,25 +1,25 @@
 "use strict";
-let db = require('../models').db;
+let db = require('../models/index').db;
 
 module.exports = {
 
-  reviewsCreate: function(req, res) {
-    let action = db.reviews.create();
+  usersCreate: function(req, res) {
+    let action = db.users.create();
     respond(action, res);
   },
 
-  reviewsReadOne: function(req, res) {
-    let action = db.reviews.readOne();
+  usersReadOne: function(req, res) {
+    let action = db.users.readOne();
     respond(action, res);
   },
 
-  reviewsUpdateOne: function(req, res) {
-    let action = db.reviews.updateOne();
+  usersUpdateOne: function(req, res) {
+    let action = db.users.updateOne();
     respond(action, res);
   },
 
-  reviewsDeleteOne: function(req, res) {
-    let action = db.reviews.deleteOne();
+  usersDeleteOne: function(req, res) {
+    let action = db.users.deleteOne();
     respond(action, res);
   }
 };

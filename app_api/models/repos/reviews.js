@@ -1,4 +1,5 @@
-var sql = require('../sql').reviews;
+"use strict";
+let sql = require('../sql/index').reviews;
 
 module.exports = function(obj) {
   return {
