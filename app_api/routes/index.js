@@ -5,7 +5,6 @@ let ctrlLocations = require('../controllers/locations');
 let ctrlReviews = require('../controllers/reviews');
 let ctrlUsers = require('../controllers/users');
 
-
 //CREATE new location
 router.post('/locations', ctrlLocations.locationsCreate);
 //READ list of locations

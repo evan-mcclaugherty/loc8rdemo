@@ -3,24 +3,22 @@
 let db = require('../models').db;
 
 module.exports = {
+    locationsCreate: (req, res) => {
+        let action = db.locations.create(req.body);
+        console.log(typeof action);
+    },
 
     locationsListByDistance: (req, res) => {
         let action = db.locations.listByDistance();
         respond(action, res);
     },
 
-    locationsCreate: (req, res) => {
-        let action = db.locations.create();
-
-        respond(action, res);
-    },
-
-    locationsReadOne: function (req, res) {
+    locationsReadOne: (req, res) => {
         let action = db.locations.readOne();
         respond(action, res);
     },
 
-    locationsUpdateOne: function (req, res) {
+    locationsUpdateOne: (req, res) => {
         let action = db.locations.updateOne();
         respond(action, res);
     },
@@ -32,12 +30,12 @@ module.exports = {
 };
 
 function respond(action, res) {
-    action.then(function (data) {
+    action.then(data => {
         res.json({
             success: true,
             data: data
         });
-    }).catch(function (error) {
+    }).catch(error => {
         res.json({
             success: false,
             error: error.message || error

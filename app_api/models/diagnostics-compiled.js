@@ -56,7 +56,6 @@ monitor.log = function (msg, info) {
 
         info.display = false; // display nothing;
     }
-
 };
 
 let attached = false;
@@ -79,7 +78,6 @@ module.exports = {
             // In a DEV environment, we attach to all supported events:
 
             monitor.attach(options);
-
         } else {
 
             // In a PROD environment we should only attach to the type of events
@@ -98,3 +96,5 @@ module.exports = {
         }
     }
 };
+
+//# sourceMappingURL=diagnostics-compiled.js.map
