@@ -1,7 +1,3 @@
 node_modules
 .tern-project
 .idea
-
-.gitignore
-app-compiled.js
-app-compiled.js.map

@@ -13,7 +13,6 @@ let sqlProvider = {
     locations: {
         create: sql('locations/create.sql'),
         deleteOne: sql('locations/deleteOne.sql'),
-        listByDistance: sql('locations/listByDistance.sql'),
         readOne: sql('locations/readOne.sql'),
         updateOne: sql('locations/updateOne.sql')
     },

@@ -34,3 +34,12 @@
 
 20:08:11 error: Property 'name' doesn't exist.
          query: insert into locations(name, street, city, zip) values(${name}, ${street}, ${city}, ${zip});
+
+20:44:00 error: Property 'name' doesn't exist.
+         query: insert into locations(name, street, city, zip) values(${name}, ${street}, ${city}, ${zip});
+
+21:55:37 error: there is no parameter $1
+         query: select from locations where locationpk = ($1);
+
+22:06:36 error: invalid input syntax for integer: "NaN"
+         query: select from locations where locationpk = ('NaN');

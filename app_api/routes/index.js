@@ -7,8 +7,6 @@ let ctrlUsers = require('../controllers/users');
 
 //CREATE new location
 router.post('/locations', ctrlLocations.locationsCreate);
-//READ list of locations
-router.get('/locations', ctrlLocations.locationsListByDistance);
 //READ specific location
 router.get('/locations/:locationID', ctrlLocations.locationsReadOne);
 //UPDATE specific location

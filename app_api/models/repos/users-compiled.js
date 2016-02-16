@@ -1,6 +1,6 @@
 "use strict";
 
-let sql = require('../sql/').locations; //sqlProvider for locations
+let sql = require('../sql/').users; //sqlProvider for reviews
 module.exports = db => {
         return {
 
@@ -14,4 +14,4 @@ module.exports = db => {
         };
 };
 
-//# sourceMappingURL=locations-compiled.js.map
+//# sourceMappingURL=users-compiled.js.map

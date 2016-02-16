@@ -1,17 +1,14 @@
 "use strict";
 let sql = require('../sql/').locations; //sqlProvider for locations
-module.exports = (rep) => {
+module.exports = (db) => {
     return {
 
-        create: values => rep.none(sql.create, values),
+        create: values => db.oneOrNone(sql.create, values),
 
-        listByDistance: () => rep.any(sql.listByDistance),
+        readOne: value => db.one(sql.readOne, value),
 
-        readOne: value => rep.one(sql.readOne, value),
+        updateOne: value => db.none(sql.updateOne, value),
 
-        updateOne: value => rep.none(sql.updateOne, value),
-
-        deleteOne: value => rep.none(sql.deleteOne, value)
+        deleteOne: value => db.none(sql.deleteOne, value)
     };
-}
-;
+};

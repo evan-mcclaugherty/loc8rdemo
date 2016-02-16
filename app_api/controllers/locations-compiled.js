@@ -3,39 +3,13 @@
 let db = require('../models').db;
 
 module.exports = {
-    locationsCreate: (req, res) => {
-        db.locations.create(req).then(data => {
-            res.json({
-                success: true,
-                data: data
-            });
-        }).catch(error => {
-            res.json({
-                success: false,
-                error: error.message || error
-            });
-        });
-    },
+    locationsCreate: (req, res) => respond(db.locations.create(req.body), res),
 
-    locationsListByDistance: (req, res) => {
-        let action = db.locations.listByDistance();
-        respond(action, res);
-    },
+    locationsReadOne: (req, res) => respond(db.locations.readOne(parseInt(req.params.locationID)), res),
 
-    locationsReadOne: (req, res) => {
-        let action = db.locations.readOne();
-        respond(action, res);
-    },
+    locationsUpdateOne: (req, res) => respond(db.locations.updateOne(parseInt(req.params.locationID)), res),
 
-    locationsUpdateOne: (req, res) => {
-        let action = db.locations.updateOne();
-        respond(action, res);
-    },
-
-    locationsDeleteOne: (req, res) => {
-        let action = db.locations.deleteOne();
-        respond(action, res);
-    }
+    locationsDeleteOne: (req, res) => respond(db.locations.deleteOne(parseInt(req.params.locationID)), res)
 };
 
 function respond(action, res) {

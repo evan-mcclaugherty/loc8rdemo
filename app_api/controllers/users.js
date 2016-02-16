@@ -1,38 +1,25 @@
 "use strict";
-let db = require('../models/index').db;
+let db = require('../models').db;
 
 module.exports = {
+    usersCreate: (req, res)=> respond(db.users.create(req.body), res),
 
-    usersCreate: function (req, res) {
-        let action = db.users.create();
-        respond(action, res);
-    },
+    usersReadOne: (req, res) => respond(db.users.readOne(), res),
 
-    usersReadOne: function (req, res) {
-        let action = db.users.readOne();
-        respond(action, res);
-    },
+    usersUpdateOne: (req, res) => respond(db.users.updateOne(), res),
 
-    usersUpdateOne: function (req, res) {
-        let action = db.users.updateOne();
-        respond(action, res);
-    },
-
-    usersDeleteOne: function (req, res) {
-        let action = db.users.deleteOne();
-        respond(action, res);
-    }
+    usersDeleteOne: (req, res) => respond(db.users.deleteOne(), res)
 };
 
 function respond(action, res) {
     action
-        .then(function (data) {
+        .then(data => {
             res.json({
                 success: true,
                 data: data
             });
         })
-        .catch(function (error) {
+        .catch(error => {
             res.json({
                 success: false,
                 error: error.message || error

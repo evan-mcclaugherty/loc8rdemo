@@ -2,37 +2,24 @@
 let db = require('../models').db;
 
 module.exports = {
+    reviewsCreate: (req, res)=> respond(db.reviews.create(req.body), res),
 
-    reviewsCreate: function (req, res) {
-        let action = db.reviews.create();
-        respond(action, res);
-    },
+    reviewsReadOne: (req, res) => respond(db.reviews.readOne(), res),
 
-    reviewsReadOne: function (req, res) {
-        let action = db.reviews.readOne();
-        respond(action, res);
-    },
+    reviewsUpdateOne: (req, res) => respond(db.reviews.updateOne(), res),
 
-    reviewsUpdateOne: function (req, res) {
-        let action = db.reviews.updateOne();
-        respond(action, res);
-    },
-
-    reviewsDeleteOne: function (req, res) {
-        let action = db.reviews.deleteOne();
-        respond(action, res);
-    }
+    reviewsDeleteOne: (req, res) => respond(db.reviews.deleteOne(), res)
 };
 
 function respond(action, res) {
     action
-        .then(function (data) {
+        .then(data => {
             res.json({
                 success: true,
                 data: data
             });
         })
-        .catch(function (error) {
+        .catch(error => {
             res.json({
                 success: false,
                 error: error.message || error

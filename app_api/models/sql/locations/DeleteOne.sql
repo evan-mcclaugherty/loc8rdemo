@@ -1,0 +1,1 @@
+delete from locations where locationpk = ($1);
