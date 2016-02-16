@@ -4,8 +4,17 @@ let db = require('../models').db;
 
 module.exports = {
     locationsCreate: (req, res) => {
-        let action = db.locations.create(req.body);
-        console.log(typeof action);
+        db.locations.create(req).then(data => {
+            res.json({
+                success: true,
+                data: data
+            });
+        }).catch(error => {
+            res.json({
+                success: false,
+                error: error.message || error
+            });
+        });
     },
 
     locationsListByDistance: (req, res) => {

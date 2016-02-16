@@ -11,23 +11,23 @@ function sql(file) {
 
 let sqlProvider = {
     locations: {
-        locationsCreate: sql('locations/create.sql'),
-        locationsDeleteOne: sql('locations/deleteOne.sql'),
-        locationsListByDistance: sql('locations/listByDistance.sql'),
-        locationsReadOne: sql('locations/readOne.sql'),
-        locationsUpdateOne: sql('locations/updateOne.sql')
+        create: sql('locations/create.sql'),
+        deleteOne: sql('locations/deleteOne.sql'),
+        listByDistance: sql('locations/listByDistance.sql'),
+        readOne: sql('locations/readOne.sql'),
+        updateOne: sql('locations/updateOne.sql')
     },
     reviews: {
-        reviewsCreate: sql('reviews/create.sql'),
-        reviewsDeleteOne: sql('reviews/deleteOne.sql'),
-        reviewsReadOne: sql('reviews/readOne.sql'),
-        reviewsUpdateOne: sql('reviews/updateOne.sql')
+        create: sql('reviews/create.sql'),
+        deleteOne: sql('reviews/deleteOne.sql'),
+        readOne: sql('reviews/readOne.sql'),
+        updateOne: sql('reviews/updateOne.sql')
     },
     users: {
-        usersCreate: sql('users/create.sql'),
-        usersDeleteOne: sql('users/deleteOne.sql'),
-        usersReadOne: sql('users/readOne.sql'),
-        usersUpdateOne: sql('users/updateOne.sql')
+        create: sql('users/create.sql'),
+        deleteOne: sql('users/deleteOne.sql'),
+        readOne: sql('users/readOne.sql'),
+        updateOne: sql('users/updateOne.sql')
     }
 };
 

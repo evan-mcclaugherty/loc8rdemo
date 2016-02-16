@@ -1,5 +1,7 @@
 node_modules
 .tern-project
 .idea
-db/errors.log
+
 .gitignore
+app-compiled.js
+app-compiled.js.map
