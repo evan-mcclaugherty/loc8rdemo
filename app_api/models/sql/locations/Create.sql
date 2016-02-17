@@ -1,2 +1,2 @@
-insert into locations(name, street, city, zip)
-values(${name}, ${street}, ${city}, ${zip});
+insert into locations
+values(${name}, ${street}, default, ${city}, ${zip});

@@ -43,3 +43,26 @@
 
 22:06:36 error: invalid input syntax for integer: "NaN"
          query: select from locations where locationpk = ('NaN');
+
+23:58:57 error: Property 'rating' doesn't exist.
+         query: insert into reviews(rating, reviewText, , locationID, userID) values(${rating},${reviewText},${locationID},${userID});
+         params: {"body":{"userName":"dill","firstName":"dilbert","lastName":"Pickle","email":"dpickle@jarred.com"}}
+
+00:01:41 error: syntax error at or near "default"
+         query: insert into users(default, userName, firstName, lastName, email, default) VALUES('dill','dilbert','Pickle', 'dpickle@jarred.com');
+
+00:03:07 error: column "userid" of relation "users" does not exist
+         query: insert into users(userID, userName, firstName, lastName, email, createdOn) VALUES(default,'dill','dilbert','Pickle', 'dpickle@jarred.com', default);
+
+00:03:53 error: syntax error at or near ")"
+         query: insert into users) values(default,'dill','dilbert','Pickle', 'dpickle@jarred.com', default);
+
+00:36:46 error: Property 'rating' doesn't exist.
+         query: insert into reviews values(default,${rating},${reviewText},default,${locationID},${userID});
+
+00:44:31 error: Property 'locationID' doesn't exist.
+         query: insert into reviews values(default,${rating},${reviewText},default,${locationID},${userID});
+         params: {"rating":"4","reviewText":"Just great, awesome place.","userID":"1"}
+
+01:04:06 error: invalid input syntax for integer: "NaN"
+         query: select from locations where locationpk = ('NaN');

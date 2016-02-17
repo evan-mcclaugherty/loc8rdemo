@@ -23,4 +23,7 @@ router.put('/locations/:locationID/reviews/:reviewID', ctrlReviews.reviewsUpdate
 //DELETE a specific review
 router.delete('/locations/:locationID/reviews/:reviewID', ctrlReviews.reviewsDeleteOne);
 
+//CREATE a user
+router.post('/locations/users', ctrlUsers.usersCreate);
+
 module.exports = router;

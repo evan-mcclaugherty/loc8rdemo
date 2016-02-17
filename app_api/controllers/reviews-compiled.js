@@ -3,7 +3,11 @@
 let db = require('../models').db;
 
 module.exports = {
-    reviewsCreate: (req, res) => respond(db.reviews.create(req.body), res),
+    reviewsCreate: (req, res) => {
+        let body = req.body;
+        body.locationID = req.params.locationID;
+        respond(db.reviews.create(body), res);
+    },
 
     reviewsReadOne: (req, res) => respond(db.reviews.readOne(), res),
 

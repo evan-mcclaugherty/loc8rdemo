@@ -3,7 +3,10 @@ let sql = require('../sql/').reviews; //sqlProvider for reviews
 module.exports = (db) => {
     return {
 
-        create: values => db.oneOrNone(sql.create, values),
+        create: values => {
+            console.log(values);
+            return db.oneOrNone(sql.create, values)
+        },
 
         readOne: value => db.one(sql.readOne, value),
 

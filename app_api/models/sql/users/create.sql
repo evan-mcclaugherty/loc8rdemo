@@ -1,2 +1,2 @@
-INSERT INTO users(userName, firstName, lastName, email)
-VALUES(${userName},${firstName},${lastName}, ${email});
+insert into users
+values(default,${userName},${firstName},${lastName}, ${email}, default);

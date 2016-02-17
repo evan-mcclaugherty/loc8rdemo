@@ -1,2 +1,2 @@
-INSERT INTO reviews(rating, reviewText, , locationID, userID)
-VALUES(${rating},${reviewText},${locationID},${userID});
+insert into reviews
+values(default,${rating},${reviewText},default,${locationID},${userID});
