@@ -18,7 +18,14 @@ let options = {
 
 let pgp = require('pg-promise')(options);
 
-let db = pgp(process.env.DATABASE_URL);
+var config = {
+    host: 'localhost',
+    port: 5432,
+    database: 'pg-promise-demo',
+    user: 'postgres'
+};
+
+let db = pgp(config);
 
 let diag = require('./diagnostics');
 diag.init(options);

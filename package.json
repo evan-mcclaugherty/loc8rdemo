@@ -33,5 +33,17 @@
   },
   "devDependencies": {
     "babel-cli": "^6.5.1"
-  }
+  },
+  "description": "Book Getting MEAN but using Postgres with pg-promise",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evnmck/loc8rdemo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evnmck/loc8rdemo/issues"
+  },
+  "homepage": "https://github.com/evnmck/loc8rdemo#readme"
 }
